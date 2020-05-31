@@ -1,10 +1,11 @@
 <template>
   <section>
     <transition-group name="list" tag="ul">
-      <li v-for="(todoItem, index) in propsdata" :key="todoItem" class="shadow">
-        <i class="checkBtn fa fa-check" aria-hidden="true"></i>
-        {{ todoItem }}
-        <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+      <li v-for="(todoItem,index) in propsdata" :key="todoItem.id" class="shadow">
+        <!-- <i class="checkBtn fa fa-check" aria-hidden="true"></i> -->
+        <input class="toggle" type="checkbox" v-model="todoItem.completed" />
+        {{ todoItem.title }}
+        <span class="removeBtn" type="button" @click="removeTodo(todoItem,index)">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </span>
       </li>

@@ -1,11 +1,25 @@
 <template>
   <header>
-    <h1>TODO it!</h1>
+
+    <h1>ToDo List!</h1>
+    <button v-on:click="clickBtn" v-if="!showMessage">About!</button>
+    <p ref="pEl"></p>
   </header>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      showMessage : false
+    }
+  },
+  methods: {
+    clickBtn: function () {
+      this.$refs.pEl.innerText = '처음 만들어 보는 Vue App';
+      this.showMessage = !this.showMessage;
+    }
+  }
 
 }
 </script>
