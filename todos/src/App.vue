@@ -67,7 +67,7 @@ export default {
         id: todoStorage.uid++,
         title: todoItem,
         completed: false,
-        created: Date.now
+        created: Date.now()
       });
     },
     clearAll() {

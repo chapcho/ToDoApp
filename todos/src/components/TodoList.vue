@@ -3,11 +3,19 @@
     <transition-group name="list" tag="ul">
       <li v-for="(todoItem,index) in propsdata" :key="todoItem.id" class="shadow">
         <!-- <i class="checkBtn fa fa-check" aria-hidden="true"></i> -->
-        <input class="toggle" type="checkbox" v-model="todoItem.completed" />
-        {{ todoItem.title }}
-        <span class="removeBtn" type="button" @click="removeTodo(todoItem,index)">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        </span>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="checkbox" aria-label="Checkbox for following text input" v-model="todoItem.completed">
+              {{ todoItem.id }}[
+              {{ todoItem.created | moment('MM/DD HH:mm') }}]
+              {{ todoItem.title }}
+              <span class="removeBtn" type="button" @click="removeTodo(todoItem,index)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </span>              
+            </div>
+          </div>
+        </div>
       </li>
     </transition-group>
   </section>
